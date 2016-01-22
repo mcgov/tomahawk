@@ -24,3 +24,8 @@ ExportedObj/
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
+
+#also since i'm using cpp (and maybe never using unity)
+*.o
+*TextExec  #tests
+
