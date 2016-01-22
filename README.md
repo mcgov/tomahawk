@@ -1,2 +1,6 @@
-# tomahawk
-a truly awesome project
+tomahawk
+++++++++
+
+an engine for tight text/sprite rpgs.
+
+maybe. we'll see
