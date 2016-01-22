@@ -1,5 +1,5 @@
 tomahawk
-++++++++
+========
 
 an engine for tight text/sprite rpgs.
 
