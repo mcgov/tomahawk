@@ -1,7 +1,6 @@
 #include "Team.h"
 
-#ifndef BATTLE
-#define BATTLE
+#pragma once
 
 #define MAX_TEAMS 2
 
@@ -18,4 +17,3 @@ public:
 
 };
 
-#endif

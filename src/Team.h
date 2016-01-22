@@ -3,13 +3,14 @@
 #include <stdint.h>
 using namespace std;
 
-#ifndef TEAM
-#define TEAM
+#pragma once
 
 class Team{
 	public:
+		Team();
+
 		vector<Character*> teamMembers;
+		
+		void addMember(Character*);
 		size_t teamSize;
 };
-
-#endif
