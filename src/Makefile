@@ -1,10 +1,11 @@
+CPPflags = -std=c++11 
 build:
-	g++ Battle.cpp -c --std=c++11
-	g++ Team.cpp -c --std=c++11
-	g++ Character.cpp -c --std=c++11
+	g++ $(CPPflags) Battle.cpp -c 
+	g++ $(CPPflags) Team.cpp -c 
+	g++ $(CPPflags) Character.cpp -c 
 tests: build
-	g++ Battle.o Team.o Character.o SimpleBattleTest.cpp --std=c++11 -o SimpleBattleTestExec
-	g++ Battle.o Team.o Character.o CharacterHungerTest.cpp --std=c++11 -o CharacterHungerTestExec
+	g++ $(CPPflags) Battle.o Team.o Character.o SimpleBattleTest.cpp -o SimpleBattleTestExec
+	g++ $(CPPflags) Battle.o Team.o Character.o CharacterHungerTest.cpp -o CharacterHungerTestExec
 clean:
 	rm *.o
 	rm *TestExec
