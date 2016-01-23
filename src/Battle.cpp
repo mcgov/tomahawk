@@ -20,6 +20,7 @@ void Battle::getNextMove()
 {
 
 	if ( teams[whichTeam]->teamSize == currentCharacterIndex.at(whichTeam) ){ //if we have reached the end of this vector...
+    //test comment
 		currentCharacterIndex.at(whichTeam) = 0 ;	//reset it
 	}
 	Character* currentChar = teams[whichTeam]->teamMembers.at( currentCharacterIndex.at(whichTeam) ); //mouthfull, grab the next character to make a move
