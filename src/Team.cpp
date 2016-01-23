@@ -10,7 +10,6 @@ Team::Team(){
 
 		
 void Team::addMember( Character* add ){
-	this->teamMembers.push_back(add);
+	this->teamMembers.push_back( add );
 	this->teamSize++;
 }
-

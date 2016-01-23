@@ -1,9 +1,7 @@
-#ifndef ITEM 
-#define ITEM
+#pragma once
 
 class Item{
 	
 
 };
 
-#endif
