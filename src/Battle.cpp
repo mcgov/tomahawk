@@ -18,7 +18,6 @@ Battle::Battle( vector<Team*> teams){
 
 void Battle::getNextMove()
 {
-
 	if ( teams[whichTeam]->teamSize == currentCharacterIndex.at(whichTeam) ){ //if we have reached the end of this vector...
     //test comment
 		currentCharacterIndex.at(whichTeam) = 0 ;	//reset it
