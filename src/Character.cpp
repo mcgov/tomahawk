@@ -9,10 +9,10 @@ using namespace std;
 
 Character::Character(string name){
 
-	this->hunger = 0x00;
-	this->thirst = 0x00;
-	this->bladder = 0x00;
-	this->bowels = 0x00;
+	this->hunger = 0;
+	this->thirst = 0;
+	this->bladder = 0;
+	this->bowels = 0;
 	for ( int i = 0; i < Character::LEN_STATUS; i++ ){
 		this->characterStatus[i] = false;
 	}
