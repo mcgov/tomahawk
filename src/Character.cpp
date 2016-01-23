@@ -8,14 +8,19 @@ using namespace std;
 
 
 Character::Character(string name){
-
+    //defining character properties
 	this->hunger = 0;
 	this->thirst = 0;
 	this->bladder = 0;
 	this->bowels = 0;
+    this->hitpoints = 0;
+    this->stamina = 0;
+    
+    //setting character status enums to their defaults
 	for ( int i = 0; i < Character::LEN_STATUS; i++ ){
 		this->characterStatus[i] = false;
 	}
+    
 	this->name = name;
 	this->inventory = vector<Item>();
 
@@ -54,11 +59,13 @@ Character::STATUS Character::updateStatus( ){
 		this->removeStatus( Character::NEED_POOP );
 	if ( this->bladder < PEE_THRESHOLD )
 		this->removeStatus( Character::NEED_PEE );
+        
+    /* Health */
+	if ( this->hitpoints <= 0 )
+		this->addNewStatus( Character::DEAD );
 
-
-	/*bladder*/
-
-
+	if (this->THIRSTY <= 0 )
+		this->removeStatus( Character::TIRED );
 
 }
 
