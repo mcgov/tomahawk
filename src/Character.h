@@ -15,7 +15,7 @@ class Character{
 
 public:
 	enum STATUS { HEALTHY = 0, SICK, POISON, HUNGRY, THIRSTY, 
-			  BLEEDING, NEED_POOP, NEED_PEE, DEAD, LEN_STATUS }; //NOTE: don't move that last status plz thx.
+			  BLEEDING, NEED_POOP, NEED_PEE, DEAD, TIRED, LEN_STATUS }; //NOTE: don't move that last status plz thx.
 	bool characterStatus[LEN_STATUS]; //boolean array can be addressed with the enum above.
 	
 	uint8_t hunger, thirst, bowels, bladder;

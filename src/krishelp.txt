@@ -1,0 +1,4 @@
+Vectors are just arrays of items same as a List<Of T>
+
+object* is basically just a type. A test* is a pointer to an object in memory
+

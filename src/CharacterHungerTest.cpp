@@ -28,7 +28,26 @@ int main(){
 	assert ( test.characterStatus[Character::HUNGRY] == false ) ;
 	cout <<  "Hunger is : " << ( test.characterStatus[Character::HUNGRY] ? "true" : "false" ) << '\n';
 
-
+    test.hitpoints = 1;
+    test.updateStatus();
+    assert ( test.characterStatus[Character::DEAD] == false) ;
+    cout << "Character is dead : " << ( test.characterStatus[Character:: DEAD] ? "true" : "false" ) << '\n';
+    
+    test.hitpoints = 0;
+    test.updateStatus();
+    assert ( test.characterStatus[Character::DEAD] == true) ;
+    cout << "Character is dead : " << ( test.characterStatus[Character:: DEAD] ? "true" : "false" ) << '\n';
+    
+    test.stamina = 1;
+    test.updateStatus();
+    assert ( test.characterStatus[Character::TIRED] == false) ;
+    cout << "Character is tired : " << ( test.characterStatus[Character:: TIRED] ? "true" : "false" ) << '\n';
+    
+    test.stamina = 0;
+    test.updateStatus();
+    assert ( test.characterStatus[Character::TIRED] == true) ;
+    cout << "Character is tired : " << ( test.characterStatus[Character:: TIRED] ? "true" : "false" ) << '\n';
+    
 	cout << "All tests complete! :D huzzaah." <<'\n';
 
 	return 1;
