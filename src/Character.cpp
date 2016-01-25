@@ -46,7 +46,7 @@ Character::STATUS Character::updateStatus( ){
 	if ( this->thirst >= THIRST_THRESHOLD )
 		this->addNewStatus( Character::THIRSTY );
 
-	if (this->THIRSTY < THIRST_THRESHOLD )
+	if (this->thirst < THIRST_THRESHOLD )
 		this->removeStatus( Character::THIRSTY );
 
 	/*bathroom*/
