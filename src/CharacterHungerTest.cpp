@@ -19,26 +19,17 @@ void testAttribute( Character * testCharacter, uint8_t *attribute, Character::ST
 int main(){
 
 	Character test = Character("Jonny");
-	cout <<  "Hunger is : " << ( test.characterStatus[Character::HUNGRY] ? "true" : "false" ) << '\n';
-	assert (  test.characterStatus[Character::HUNGRY] == false ) ;
 
+    /*Hunger tests*/
 	test.addNewStatus(Character::HUNGRY);
-	assert (  test.characterStatus[Character::HUNGRY] == true ) ;
-	cout <<  "Hunger is : " << ( test.characterStatus[Character::HUNGRY] ? "true" : "false" ) << '\n';
-	
-    test.removeStatus(Character::HUNGRY);
-	cout <<  "Hunger is : " << ( test.characterStatus[Character::HUNGRY] ? "true" : "false" ) << '\n';
-	assert (  test.characterStatus[Character::HUNGRY] == false ) ;
-
-    testAttribute( &test, &test.hunger, Character::HUNGRY, HUNGER_THRESHOLD + 1, true, "Hunger is : " );
-        testAttribute( &test, &test.hunger, Character::HUNGRY, HUNGER_THRESHOLD - 1, false, "Hunger is : " );
-    //i don't know if this is more or less clear... humm.
+	testAttribute(&test, NULL , Character::HUNGRY, 0, true, "Hunger after forced set is: ");
     
-    /* 
-	test.updateStatus();
-	assert ( test.characterStatus[Character::HUNGRY] == true ) ;
-	cout <<  "Hunger is : " << ( test.characterStatus[Character::HUNGRY] ? "true" : "false" ) << '\n';
-    */
+    test.removeStatus(Character::HUNGRY);
+	testAttribute(&test, NULL , Character::HUNGRY, 0, false, "Hunger after force remove is: ");
+
+    //set to above and below threshold test.
+    testAttribute( &test, &test.hunger, Character::HUNGRY, HUNGER_THRESHOLD + 1, true, "Hunger (above threshold) is : " );
+    testAttribute( &test, &test.hunger, Character::HUNGRY, HUNGER_THRESHOLD - 1, false, "Hunger (below threshold) is : " );
 	
     test.current_hp = 1;
     test.updateStatus();
