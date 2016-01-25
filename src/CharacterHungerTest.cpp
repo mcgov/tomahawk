@@ -10,8 +10,8 @@ void testAttribute( Character * testCharacter, uint8_t *attribute, Character::ST
     //we should wrap these tests up into a function since we're copy and pasting so much.
     if (attribute != NULL){
         *attribute = set_to;         
+        testCharacter->updateStatus();
     }
-    testCharacter->updateStatus();
     cout <<  status_msg << ( testCharacter->characterStatus[check_status] ? "true" : "false" ) << '\n';
     assert ( testCharacter->characterStatus[check_status] == desired_result );
 }
