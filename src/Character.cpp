@@ -13,7 +13,10 @@ Character::Character(string name){
 	this->thirst = 0;
 	this->bladder = 0;
 	this->bowels = 0;
-    this->hitpoints = 0;
+    this->current_hp = 0; //  <-- we should have some function to set these based on level and stats
+    this->current_mp = 0; // <--- this one too
+    this->max_hp = 0;  //also these I guess.
+    this->max_mp = 0;  //and dis
     this->stamina = 0;
     
     //setting character status enums to their defaults
@@ -61,11 +64,15 @@ Character::STATUS Character::updateStatus( ){
 		this->removeStatus( Character::NEED_PEE );
         
     /* Health */
-	if ( this->hitpoints <= 0 )
+	if ( this->current_hp <= 0 )
 		this->addNewStatus( Character::DEAD );
+    else if ( this->current_hp > 0 )
+		this->removeStatus( Character::DEAD );
 
-	if (this->THIRSTY <= 0 )
+	if (this->stamina > 0 )
 		this->removeStatus( Character::TIRED );
+    else if (this->stamina <= 0 )
+		this->addNewStatus( Character::TIRED );
 
 }
 

@@ -4,6 +4,18 @@
 #include "Globals.h"
 using namespace std;
 
+void testAttribute( Character * testCharacter, uint8_t *attribute, Character::STATUS check_status, 
+                        int set_to ,  bool desired_result, const char* status_msg  )
+{
+    //we should wrap these tests up into a function since we're copy and pasting so much.
+    if (attribute != NULL){
+        *attribute = set_to;         
+    }
+    testCharacter->updateStatus();
+    cout <<  status_msg << ( testCharacter->characterStatus[check_status] ? "true" : "false" ) << '\n';
+    assert ( testCharacter->characterStatus[check_status] == desired_result );
+}
+
 int main(){
 
 	Character test = Character("Jonny");
@@ -13,27 +25,27 @@ int main(){
 	test.addNewStatus(Character::HUNGRY);
 	assert (  test.characterStatus[Character::HUNGRY] == true ) ;
 	cout <<  "Hunger is : " << ( test.characterStatus[Character::HUNGRY] ? "true" : "false" ) << '\n';
-	test.removeStatus(Character::HUNGRY);
+	
+    test.removeStatus(Character::HUNGRY);
 	cout <<  "Hunger is : " << ( test.characterStatus[Character::HUNGRY] ? "true" : "false" ) << '\n';
-
 	assert (  test.characterStatus[Character::HUNGRY] == false ) ;
 
-	test.hunger = HUNGER_THRESHOLD + 1 ;
+    testAttribute( &test, &test.hunger, Character::HUNGRY, HUNGER_THRESHOLD + 1, true, "Hunger is : " );
+        testAttribute( &test, &test.hunger, Character::HUNGRY, HUNGER_THRESHOLD - 1, false, "Hunger is : " );
+    //i don't know if this is more or less clear... humm.
+    
+    /* 
 	test.updateStatus();
 	assert ( test.characterStatus[Character::HUNGRY] == true ) ;
 	cout <<  "Hunger is : " << ( test.characterStatus[Character::HUNGRY] ? "true" : "false" ) << '\n';
-
-	test.hunger = HUNGER_THRESHOLD - 1 ;
-	test.updateStatus();
-	assert ( test.characterStatus[Character::HUNGRY] == false ) ;
-	cout <<  "Hunger is : " << ( test.characterStatus[Character::HUNGRY] ? "true" : "false" ) << '\n';
-
-    test.hitpoints = 1;
+    */
+	
+    test.current_hp = 1;
     test.updateStatus();
     assert ( test.characterStatus[Character::DEAD] == false) ;
     cout << "Character is dead : " << ( test.characterStatus[Character:: DEAD] ? "true" : "false" ) << '\n';
     
-    test.hitpoints = 0;
+    test.current_hp = 0;
     test.updateStatus();
     assert ( test.characterStatus[Character::DEAD] == true) ;
     cout << "Character is dead : " << ( test.characterStatus[Character:: DEAD] ? "true" : "false" ) << '\n';
