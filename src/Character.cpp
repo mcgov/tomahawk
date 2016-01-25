@@ -18,7 +18,9 @@ Character::Character(string name){
     this->max_hp = 0;  //also these I guess.
     this->max_mp = 0;  //and dis
     this->stamina = 0;
+    this->max_stamina = 10;  
     
+        
     //setting character status enums to their defaults
 	for ( int i = 0; i < Character::LEN_STATUS; i++ ){
 		this->characterStatus[i] = false;

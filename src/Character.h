@@ -21,7 +21,7 @@ public:
 			  BLEEDING, NEED_POOP, NEED_PEE, DEAD, TIRED, LEN_STATUS }; //NOTE: don't move that last status plz thx.
 	bool characterStatus[LEN_STATUS]; //now the boolean array can be addressed with the enum above.
 	
-	uint8_t hunger, thirst, bowels, bladder, level, stamina; 
+	uint8_t hunger, thirst, bowels, bladder, level, stamina, max_stamina; 
     
 	int64_t current_hp, current_mp , max_hp, max_mp;
     uint64_t money;
