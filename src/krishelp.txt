@@ -1,4 +1,12 @@
 Vectors are just arrays of items same as a List<Of T>
 
-object* is basically just a type. A test* is a pointer to an object in memory
+object* is basically just a type. A test* is a pointer to a "test" object in memory
+you can make a pointer to an object ex: 'object' by adding the & symbol.
+&object returns the address of that object in memory.
+
+files are divided into .h and .cpp files. .h includes just the declarations, and function 'prototypes'.
+these are included when you want to 'import' a file.
+
+the .cpp files include all the details, initializations of data and implementations of functions and methods.
+
 
